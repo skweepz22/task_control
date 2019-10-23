@@ -1,0 +1,39 @@
+<div class="container">
+    <section class="buttons">
+        <button (click)="setGlobal()">Global Tasks</button>
+        <button (click)="setPersonal()">Personal Tasks</button>
+        <button (click)="setLeader()">Leader Tasks</button>
+    </section>
+    <section >
+        <div class="tasks" *ngIf="global===true">
+            <h2 style="text-align: center">Team Tasks</h2>
+            <div class="taskBox" *ngFor="let task of globalTasks">
+                <h3>Task: {{task.text}}</h3>
+                <p>Creator: {{task.creator}}</p>
+                <p>Task Start: {{task.start}}</p>
+                <p>Task End: {{task.end}}</p>
+                <p>Complete: {{task.isCompleted}} <button (click)="taskComplete(task)">completed</button></p>
+            </div>
+        </div>
+        <div class="tasks" *ngIf="personal===true">
+                <h2 style="text-align: center">Personal Tasks</h2>
+            <div class="taskBox" *ngFor="let task of personalTasks">
+                <h3>Task: {{task.text}}</h3>
+                <p>Creator: {{task.creator}}</p>
+                <p>Task Start: {{task.start}}</p>
+                <p>Task End: {{task.end}}</p>
+                <p>Complete: {{task.isCompleted}} <button (click)="taskComplete(task)">completed</button></p>
+            </div>
+        </div>
+        <div class="tasks" *ngIf="leader===true">
+                <h2 style="text-align: center">Leader Tasks</h2>
+            <div class="taskBox" *ngFor="let task of leaderTasks">
+                <h3>Task: {{task.text}}</h3>
+                <p>Creator: {{task.creator}}</p>
+                <p>Task Start: {{task.start}}</p>
+                <p>Task End: {{task.end}}</p>
+                <p>Complete: {{task.isCompleted}} <button (click)="taskComplete(task)">completed</button></p>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+  <header>
+    <h2>Tasks Contorl</h2>
+    <p>My Tasks: {{personalTasks}} | Team Tasks: {{globalTasks}}</p>
+  </header>
+  <div class="sidebar">
+    <nav>
+      <ul>
+        <li><fa-icon [icon]="faHome"></fa-icon> <a [routerLink]="['home']">Home</a> </li>
+        <li><fa-icon [icon]="faTasks"></fa-icon> <a [routerLink]="['tasks']">Tasks</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="body">
+      <router-outlet></router-outlet> 
+  </div>  
+</div>

@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="top">
+        <h1 style="text-align: center">Current Tasks</h1>
+        <button id="button" (click)="modal=true">Add New Task</button>
+    </div>
+    <section class="buttons">
+        <button (click)="setAll()">All Tasks</button>
+        <button (click)="setTeam()">Team Tasks</button>
+        <button (click)="setPersonal()">Personal Tasks</button>
+        <button (click)="setLeader()">Leader Tasks</button>
+    </section>
+    <div class="tasks" *ngIf="showAll===true">
+        <div class="taskBox" *ngFor="let task of allTasks">
+            <h3>Task: {{task.text}}</h3>
+            <p>Creator: {{task.creator}}</p>
+            <p>Task Start: {{task.start}}</p>
+            <p>Task End: {{task.end}}</p>
+            <p>Complete: {{task.isCompleted}} <button (click)="taskComplete(task)">completed</button></p>
+        </div>
+    </div>
+    <div class="tasks" *ngIf="showPersonal===true">
+        <div class="taskBox" *ngFor="let task of personalTasks">
+            <h3>Task: {{task.text}}</h3>
+            <p>Creator: {{task.creator}}</p>
+            <p>Task Start: {{task.start}}</p>
+            <p>Task End: {{task.end}}</p>
+            <p>Complete: {{task.isCompleted}} <button (click)="taskComplete(task)">completed</button></p>
+        </div>
+    </div>
+    <div class="tasks" *ngIf="showLeader===true">
+        <div class="taskBox" *ngFor="let task of leaderTasks">
+            <h3>Task: {{task.text}}</h3>
+            <p>Creator: {{task.creator}}</p>
+            <p>Task Start: {{task.start}}</p>
+            <p>Task End: {{task.end}}</p>
+            <p>Complete: {{task.isCompleted}} <button (click)="taskComplete(task)">completed</button></p>
+        </div>
+    </div>
+    <div class="tasks" *ngIf="showNotMe===true">
+        <div class="taskBox" *ngFor="let task of notMyTasks">
+            <h3>Task: {{task.text}}</h3>
+            <p>Creator: {{task.creator}}</p>
+            <p>Task Start: {{task.start}}</p>
+            <p>Task End: {{task.end}}</p>
+            <p>Complete: {{task.isCompleted}} <button (click)="taskComplete(task)">completed</button></p>
+        </div>
+    </div>
+    <div class="modal" *ngIf="modal===true">
+        <div class="fromContainer">
+            <form (submit)="addNewTask()" #taskForm="ngForm">
+                <span (click)="modal=false">X</span>
+                <label for="name">Name:</label>
+                <input type="text" placeholder="Name of Creator" [(ngModel)]="newTask.creator" name="creator">
+                <label for="isGlobal">Is this a Team or Personal Task?</label>
+                <select type="string" name="isGlobal" [(ngModel)]="newTask.isGlobal">
+                    <option value="" disabled selected>Select One</option>
+                    <option [ngValue]=false>Personal</option>
+                    <option [ngValue]=true>Team</option>
+                </select>
+                <label for="start">When does this task begin?</label>
+                <input type="date" [(ngModel)]="newTask.start" name="start">
+                <label for="end">When is this task due?</label>
+                <input type="date" [(ngModel)]="newTask.end" name="end">
+                <label for="isLeader">Is this a Leader Task?</label>
+                <select type="string" name="isLeader" [(ngModel)]="newTask.isLeader">
+                    <option value="" disabled selected>Select One</option>
+                    <option [ngValue]=true>Yes</option>
+                    <option [ngValue]=false>No</option>
+                </select>
+                <label for="task">What is your task?</label>
+                <textarea name="message" [(ngModel)]="newTask.text" name="text" placeholder="Describe task..."></textarea>
+                <input type="submit" value="Submit">
+                <strong *ngIf="errMsg.err" style="color: red; text-align:center;">{{errMsg.msg}}</strong>
+            </form>
+        </div>
+    </div>
+</div>

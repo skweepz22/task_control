@@ -1,0 +1,70 @@
+.container {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* position: relative; */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+}
+
+header {
+    margin: 0 auto;
+    padding: 0;
+    height: fit-content;
+    height: 100%;
+    width: 100%;
+    grid-column: 1/13;
+    grid-row: 1/2;
+    display: flex;
+    background-color: #98dbfff3;
+}
+
+header h2 {
+    margin: auto;
+    flex: 2;
+    text-align: right;
+}
+
+header p{
+    margin: auto 0;
+    padding: 0 10px;
+    text-align: right;
+    flex: 1;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 4rem 0;
+    grid-row: 2/13;
+    grid-column: 1/2;
+    background-color: #b3f4ff;
+    position: fixed;
+    height: 100%;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+nav ul li {
+    margin: auto 0.5rem;
+    padding: 1rem 0;
+}
+
+nav ul li a {
+    margin: 0;
+    padding: 0 0.5rem;
+    text-decoration: none;
+}
+
+.body {
+    height: 100%;
+    width: 100%;
+    grid-column: 2/13;
+    grid-row: 2/13;
+}
