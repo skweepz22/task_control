@@ -57,7 +57,7 @@ export class TasksComponent implements OnInit {
       this.errMsg.err = false;
       this.modal = false;
       this.service.addNew(this.newTask)
-      this.router.navigateByUrl("/tasks")
+      // this.router.navigateByUrl()
     }
   }
 
