@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { allTasks as tasks } from '../assets/data/tasks';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskControlService {
 
-  allTasks = tasks;
+  allTasks;
 
   globalTaskCount = 0;
   personalTaskCount = 0;
